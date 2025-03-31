@@ -37,7 +37,7 @@ $(document).keypress(function (e) {
         var j = 0;
         while(current >= 0 && j < 10){
         
-        	output += '<tr><td>'+current+'</td><td>'+Math.round((current/total)*100)+'%</td></tr>';
+        	output += '<tr><td>'+current+'</td><td>'+Math.round(formatDec(current/total*1000)/10)+'%</td></tr>';
           
           current = Math.round((current - inc)*100)/100;
           j++;
@@ -54,5 +54,12 @@ $(document).keypress(function (e) {
 		});
     
    });
+
+   // use this for complicated calculations to format the decimal correctly for floating point errors
+   function formatDec(a){
+   
+     return Math.round(a*10000)/10000;
+   
+   }
   
    	</script>
